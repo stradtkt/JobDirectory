@@ -9,11 +9,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { UserListComponent } from './components/users/user-list/user-list.component';
-import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
-import { JobNewComponent } from './components/jobs/job-new/job-new.component';
-import { JobListComponent } from './components/jobs/job-list/job-list.component';
-import { JobDetailComponent } from './components/jobs/job-detail/job-detail.component';
+import * as fromUsers from './components/users';
+import * as fromJobs from './components/jobs';
 
 @NgModule({
   declarations: [
@@ -22,11 +19,8 @@ import { JobDetailComponent } from './components/jobs/job-detail/job-detail.comp
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    UserListComponent,
-    UserDetailComponent,
-    JobNewComponent,
-    JobListComponent,
-    JobDetailComponent
+    ...fromUsers.components,
+    ...fromJobs.components
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
