@@ -43,6 +43,18 @@ namespace JobDirectory.Controllers
             return objectJob.UpdateJob(job);
         }
 
-        
+        [HttpDelete]
+        [Route("api/Job/Delete/{id}")]
+        public int Delete(int id)
+        {
+            return objectJob.DeleteJob(id);
+        }
+
+        [HttpGet]
+        [Route("api/Job/GetUserList")]
+        public IEnumerable<User> Details()
+        {
+            return objectJob.GetUsers();
+        }
     }
 }
